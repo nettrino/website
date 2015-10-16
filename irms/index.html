@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>
+    Candidancy Exam Proposal
+  </title>
+  <script src="http://www.cs.columbia.edu/~theofilos/js/jquery-1.11.2.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="http://www.cs.columbia.edu/~theofilos/css/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="http://www.cs.columbia.edu/~theofilos/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="./custom.css" type="text/css">
+  <!-- <link rel="stylesheet" href="http://www.cs.columbia.edu/~theofilos/css/custom.css" type="text/css"> -->
+  <link rel="shortcut icon" href="http://www.cs.columbia.edu/~theofilos/fig/favicon.ico">
+</head>
+<body>
+
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>
+                    <center>
+                    Compiler-Assisted Software Integrity
+                </center>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div id="publications">
+        <div class="paperlist">
+            <ol>
+                <h2>Control Flow Integrity (CFI)</h2>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/ccfi.pdf"
+                            target="_blank">
+                            CCFI:
+                            Cryptographically Enforced Control Flow
+                            Integrity (CCS 2015)
+                        </a>
+                    </div>
+                    Mashtizadeh, A. J., Bittau, A., Boneh, D., & Mazières, D.
+                    (2015, October).
+                    In Proceedings of the 22nd ACM SIGSAC
+                    Conference on Computer and Communications Security (pp.
+                    941-951). ACM.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Control flow integrity (CFI) restricts jumps and
+                            branches within a program to prevent attackers
+                            from executing arbitrary code in vulnerable
+                            programs. However, traditional CFI still offers
+                            attackers too much freedom to chose between valid
+                            jump targets, as seen in recent attacks.
+                            <br></br>
+                            We present a new approach to CFI based on
+                            cryptographic message authentication codes (MACs).
+                            Our approach, called cryptographic CFI (CCFI),
+                            uses MACs to protect control flow elements such as
+                            return addresses, function pointers, and vtable
+                            pointers. Through dynamic checks, CCFI enables
+                            much finer-grained classification of sensitive
+                            pointers than previous approaches, thwarting all
+                            known attacks and resisting even attackers with
+                            arbitrary access to program memory.
+                            <br></br>
+                            We implemented CCFI in Clang/LLVM, taking
+                            advantage of recently available cryptographic CPU
+                            instructions (AES-NI). We evaluate our system on
+                            several large software packages (including nginx,
+                            Apache and memcache) as well as all their
+                            dependencies. The cost of protection ranges from a
+                            3--18% decrease in server request rate. We also
+                            expect this overhead to shrink as Intel improves
+                            the performance AES-NI.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/safedispatch.pdf"
+                            target="_blank">
+                            SAFEDISPATCH: Securing C++ virtual calls from
+                            memory corruption attacks (NDSS 2014)
+                        </a>
+                    </div>
+                            Jang, D., Tatlock, Z., & Lerner, S. (2014).
+                            In Symposium on Network
+                            and Distributed System Security (NDSS).
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Several defenses have increased the cost of
+                            traditional,
+                            low-level attacks that corrupt control data, e.g.
+                            return
+                            addresses saved on the stack, to compromise
+                            program execution.
+                            In response, creative adversaries have begun
+                            circumventing
+                            these defenses by exploiting programming errors to
+                            manipulate
+                            pointers to virtual tables, or vtables, of C++
+                            objects. These attacks
+                            can hijack program control flow whenever a virtual
+                            method of
+                            a corrupted object is called, potentially allowing
+                            the attacker to
+                            gain complete control of the underlying system. In
+                            this paper we
+                            present SAFEDISPATCH, a novel defense to prevent
+                            such vtable
+                            hijacking by statically analyzing C++ programs and
+                            inserting
+                            sufficient runtime checks to ensure that control
+                            flow at virtual
+                            method call sites cannot be arbitrarily influenced
+                            by an attacker.
+                            We implemented SAFEDISPATCH as a Clang++/LLVM
+                            extension,
+                            used our enhanced compiler to build a vtable-safe
+                            version of
+                            the Google Chromium browser, and measured the
+                            performance
+                            overhead of our approach on popular browser
+                            benchmark suites.
+                            By carefully crafting a handful of optimizations,
+                            we were able to
+                            reduce average runtime overhead to just 2.1%
+
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/forwardcfi.pdf"
+                            target="_blank">
+                            Enforcing Forward-Edge Control-Flow Integrity in
+                            GCC & LLVM (USENIX 2014)
+                        </a>
+                    </div>
+                    Tice, C., Roeder, T., Collingbourne, P., Checkoway, S.,
+                    Erlingsson, Ú., Lozano, L., & Pike, G. (2014, August).
+                    In USENIX Security Symposium
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Constraining dynamic control transfers is a common
+                            technique for mitigating software vulnerabilities.
+                            This defense has been widely and successfully used
+                            to protect return addresses and stack data; hence,
+                            current attacks instead typically corrupt vtable
+                            and function pointers to subvert a forward edge
+                            (an indirect jump or call) in the control-flow
+                            graph. Forward edges can be protected using
+                            Control-Flow Integrity (CFI) but, to date, CFI
+                            implementations have been research prototypes,
+                            based on impractical assumptions or ad hoc,
+                            heuristic techniques. To be widely adoptable, CFI
+                            mechanisms must be integrated into production
+                            compilers and be compatible with
+                            software-engineering aspects such as incremental
+                            compilation and dynamic libraries.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/memsafe.pdf"
+                            target="_blank">
+                    MemSafe: ensuring
+                    the spatial and temporal memory safety of C at runtime
+                    (SPE 2013)
+                        </a>
+                    </div>
+                    Simpson, M. S., & Barua, R. K. (2013).
+                    Software: Practice and Experience, 43(1), 93-128.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Memory access violations are a leading source of
+                            unreliability in C programs. As evidence of this
+                            problem, a variety of methods exist that retrofit
+                            C with software checks to detect memory errors at
+                            runtime. However, these methods generally suffer
+                            from one or more drawbacks including the inability
+                            to detect all errors, the use of incompatible
+                            metadata, the need for manual code modifications,
+                            and high runtime overheads. This paper presents a
+                            compiler analysis and transformation for ensuring
+                            the memory safety of C called MemSafe. MemSafe
+                            makes several novel contributions that improve
+                            upon previous work and lower the cost of safety.
+                            These include (i) a method for modeling temporal
+                            errors as spatial errors, (ii) a metadata
+                            representation that combines features of both
+                            object-based and pointer-based approaches, and
+                            (iii) a dataflow representation that simplifies
+                            optimizations for removing unneeded checks.
+                            MemSafe is capable of detecting real errors with
+                            lower overheads than previous efforts.
+                            Experimental results show that MemSafe detects all
+                            memory errors in six programs with known
+                            violations as well as two large and widely used
+                            open source applications. Finally, MemSafe ensures
+                            complete safety with an average overhead of 88% on
+                            30 programs commonly used for evaluating the
+                            performance of error detection tools. Copyright ©
+                            2012 John Wiley & Sons, Ltd.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/cfr.pdf"
+                            target="_blank">
+                        Control-flow restrictor: compiler-based CFI for iOS
+                        (ACSAC 2013)
+                        </a>
+                    </div>
+                    Pewny, J., & Holz, T. (2013, December). Control-flow
+                    restrictor
+                    In Proceedings of
+                    the 29th Annual Computer Security Applications Conference
+                    (pp. 309-318). ACM.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Runtime attacks that exploit software
+                            vulnerabilities are still an important concern
+                            nowadays. Even smartphone operating systems such
+                            as Apple's iOS are affected by such attacks since
+                            the system is implemented in Objective-C, a
+                            programming language that enables attacks such as
+                            buffer overflows. As a generic protection
+                            technique against a whole class of attacks,
+                            control-flow integrity (CFI) offers some
+                            interesting properties. Recent work demonstrated
+                            that CFI can be implemented on iOS by patching the
+                            binary during the loading process and adding an
+                            instrumentation layer that enforces CFI during
+                            runtime. However, this approach is of little
+                            practical value since it requires a jailbroken
+                            device, which hinders wide employment.
+                            Furthermore, binary patching has a certain
+                            performance impact.
+                            <br></br>
+                            In this paper, we show how CFI can be implemented
+                            directly within a compiler, making the approach
+                            widely deployable on all kinds of iOS devices. We
+                            extend the LLVM compiler and add our CFI
+                            enforcement approach during the compilation phase
+                            of a given app. An empirical evaluation shows that
+                            the size and performance overhead is reasonable.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/strato.pdf"
+                            target="_blank">
+                            Strato: A Retargetable Framework for Low-Level
+                            Inlined-Reference Monitors (USENIX 2013)
+                        </a>
+                    </div>
+                    Zeng, B., Tan, G., & Erlingsson, Ú. (2013, August).
+                    In Usenix Security (pp.
+                    369-382).
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Low-level Inlined Reference Monitors (IRM) such as
+                            control-flow integrity and software-based fault
+                            isolation can foil numerous software attacks.
+                            Conventionally, those IRMs are implemented through
+                            binary rewriting or transformation on equivalent
+                            low-level programs that are tightly coupled with a
+                            specific Instruction Set Architecture (ISA).
+                            Resulting implementations have poor
+                            retargetability to different ISAs. This paper
+                            introduces an IRM-implementation framework at a
+                            compiler intermediate-representation (IR) level.
+                            The IR-level framework enables easy
+                            retargetability to different ISAs, but raises the
+                            challenge of how to preserve security at the low
+                            level, as the compiler backend might invalidate
+                            the assumptions at the IR level. We propose a
+                            constraint language to encode the assumptions and
+                            check whether they still hold after the backend
+                            transformations and optimizations. Furthermore, an
+                            independent verifier is implemented to validate
+                            the security of low-level code. We have
+                            implemented the framework inside LLVM to enforce
+                            the policy of control-flow integrity and data
+                            sandboxing for both reads and writes. Experimental
+                            results demonstrate that it incurs modest runtime
+                            overhead of 19.90% and 25.34% on SPECint2000
+                            programs for x86-32 and x86-64, respectively
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/asan.pdf"
+                            target="_blank">
+                        AddressSanitizer: A Fast Address
+                        Sanity Checker (USENIX 2012)
+                        </a>
+                    </div>
+                        Serebryany, K., Bruening, D., Potapenko, A., & Vyukov,
+                        D. (2012, June).
+                        In USENIX Annual Technical Conference
+                        (pp. 309-318).
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Memory access bugs, including buffer overflows and
+                            uses of freed heap memory, remain a serious
+                            problem for programming languages like C and C++.
+                            Many memory error detectors exist, but most of
+                            them are either slow or detect a limited set of
+                            bugs, or both.
+                            <br></br>
+                            This paper presents AddressSanitizer, a new memory
+                            error detector. Our tool finds out-of-bounds
+                            accesses to heap, stack, and global objects, as
+                            well as use-after-free bugs. It employs a
+                            specialized memory allocator and code
+                            instrumentation that is simple enough to be
+                            implemented in any compiler, binary translation
+                            system, or even in hardware.
+                            <br></br>
+                            AddressSanitizer achieves efficiency without
+                            sacrificing comprehensiveness. Its average
+                            slowdown is just 73% yet it accurately detects
+                            bugs at the point of occurrence. It has found over
+                            300 previously unknown bugs in the Chromium
+                            browser and many bugs in other software.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/kguard.pdf"
+                            target="_blank">
+                    kGuard: Lightweight Kernel Protection
+                    against Return-to-User Attacks (USENIX 2012)
+                        </a>
+                    </div>
+                    Kemerlis, V. P., Portokalidis, G., & Keromytis, A. D.
+                    (2012, August).
+                    In USENIX Security
+                    Symposium (pp. 459-474).
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Return-to-user (ret2usr) attacks exploit the
+                            operating system kernel, enabling local users to
+                            hijack privileged execution paths and execute
+                            arbitrary code with elevated privileges. Current
+                            defenses have proven to be inadequate, as they
+                            have been repeatedly circumvented, incur
+                            considerable overhead, or rely on extended hyperv
+                            sors and special hardware features. We present
+                            kGuard, a compiler plugin that augments the kernel
+                            with compact inline guards, which prevent ret2usr
+                            with low performance and space overhead. kGuard
+                            can be used with any operating system that
+                            features a weak separation between kernel and user
+                            space, requires no modifications to the OS, and is
+                            applicable to both 32- and 64-bit architectures.
+                            Our evaluation demonstrates that Linux kernels
+                            compiled with kGuard become impervious to a
+                            variety of control-flow hijacking exploits. kGuard
+                            exhibits lower overhead than previous work,
+                            imposing on average an overhead of 11.4% on system
+                            call and I/O latency on x86 OSs, and 10.3% on
+                            x86-64. The size of a kGuard-protected kernel
+                            grows between 3.5% and 5.6%, due to the inserted
+                            checks, while the impact on real-life applications
+                            is minimal (≤1%).
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/wit.pdf"
+                            target="_blank">
+                    Preventing memory error exploits with WIT (S&P 2008)
+                        </a>
+                    </div>
+                    Akritidis, P., Cadar, C., Raiciu, C., Costa, M., & Castro,
+                    M. (2008, May)
+                    In Security and Privacy, 2008. SP 2008. IEEE Symposium on
+                    (pp. 263-277). IEEE.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Attacks often exploit memory errors to gain
+                            control over the execution of vulnerable programs.
+                            These attacks remain a serious problem despite
+                            previous research on techniques to prevent them.
+                            We present write integrity testing (WIT), a new
+                            technique that provides practical protection from
+                            these attacks. WIT uses points-to analysis at
+                            compile time to compute the control-flow graph and
+                            the set of objects that can be written by each
+                            instruction in the program. Then it generates code
+                            instrumented to prevent instructions from
+                            modifying objects that are not in the set computed
+                            by the static analysis, and to ensure that
+                            indirect control transfers are allowed by the
+                            control-flow graph. To improve coverage where the
+                            analysis is not precise enough, WIT inserts small
+                            guards between the original program objects. We
+                            describe an efficient implementation with
+                            optimizations to reduce space and time overhead.
+                            This implementation can be used in practice
+                            because it compiles C and C++ programs without
+                            modifications, it has high coverage with no false
+                            positives, and it has low overhead. WIT's average
+                            runtime overhead is only 7% across a set of CPU
+                            intensive benchmarks and it is negligible when IO
+                            is the bottleneck.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <h2>Memory Safety</h2>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/cets.pdf"
+                            target="_blank">
+                    CETS: compiler enforced temporal safety for C (ISMM 10)
+                        </a>
+                    </div>
+                    Nagarakatte, S., Zhao, J., Martin, M. M., & Zdancewic, S.
+                    (2010, June)
+                    In ACM Sigplan Notices (Vol. 45, No. 8, pp. 31-40).
+                    ACM.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Temporal memory safety errors, such as dangling
+                            pointer dereferences and double frees, are a
+                            prevalent source of software bugs in unmanaged
+                            languages such as C. Existing schemes that attempt
+                            to retrofit temporal safety for such languages
+                            have high runtime overheads and/or are incomplete,
+                            thereby limiting their effectiveness as debugging
+                            aids. This paper presents CETS, a compile-time
+                            transformation for detecting all violations of
+                            temporal safety in C programs. Inspired by
+                            existing approaches, CETS maintains a unique
+                            identifier with each object, associates this
+                            metadata with the pointers in a disjoint metadata
+                            space to retain memory layout compatibility, and
+                            checks that the object is still allocated on
+                            pointer dereferences. A formal proof shows that
+                            this is sufficient to provide temporal safety even
+                            in the presence of arbitrary casts if the program
+                            contains no spatial safety violations. Our CETS
+                            prototype employs both temporal check removal
+                            optimizations and traditional compiler
+                            optimizations to achieve a runtime overhead of
+                            just 48% on average. When combined with a
+                            spatial-checking system, the average overall
+                            overhead is 116% for complete memory safety
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/softbound.pdf"
+                            target="_blank">
+                    SoftBound: highly compatible and complete
+                    spatial memory safety for C (PLDI 2009)
+                        </a>
+                    </div>
+                    Nagarakatte, S., Zhao, J., Martin, M. M., & Zdancewic, S.
+                    (2009, June).
+                    In ACM Sigplan Notices (Vol.
+                    44, No. 6, pp. 245-258). ACM.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            The serious bugs and security vulnerabilities
+                            facilitated by C/C++'s lack of bounds checking are
+                            well known, yet C and C++ remain in widespread
+                            use. Unfortunately, C's arbitrary pointer
+                            arithmetic, conflation of pointers and arrays, and
+                            programmer-visible memory layout make retrofitting
+                            C/C++ with spatial safety guarantees extremely
+                            challenging. Existing approaches suffer from
+                            incompleteness, have high runtime overhead, or
+                            require non-trivial changes to the C source code.
+                            Thus far, these deficiencies have prevented
+                            widespread adoption of such techniques.
+                            <br></br>
+                            This paper proposes SoftBound, a compile-time
+                            transformation for enforcing spatial safety of C.
+                            Inspired by HardBound, a previously proposed
+                            hardware-assisted approach, SoftBound similarly
+                            records base and bound information for every
+                            pointer as disjoint metadata. This decoupling
+                            enables SoftBound to provide spatial safety
+                            without requiring changes to C source code. Unlike
+                            HardBound, SoftBound is a software-only approach
+                            and performs metadata manipulation only when
+                            loading or storing pointer values. A formal proof
+                            shows that this is sufficient to provide spatial
+                            safety even in the presence of arbitrary casts.
+                            SoftBound's full checking mode provides complete
+                            spatial violation detection with 67% runtime
+                            overhead on average. To further reduce overheads,
+                            SoftBound has a store-only checking mode that
+                            successfully detects all the security
+                            vulnerabilities in a test suite at the cost of
+                            only 22% runtime overhead on average.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/bbc.pdf"
+                            target="_blank">
+                    Baggy Bounds Checking: An Efficient and
+                    Backwards-Compatible Defense against Out-of-Bounds Errors
+                    (USENIX 2009)
+                        </a>
+                    </div>
+                    Akritidis, P., Costa, M., Castro, M., & Hand, S. (2009,
+                    August)
+                    In USENIX Security Symposium (pp. 51-66).
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Attacks that exploit out-of-bounds errors in C and
+                            C++ programs are still prevalent despite many
+                            years of research on bounds checking. Previous
+                            backwards compatible bounds checking techniques,
+                            which can be applied to unmodified C and C++
+                            programs, maintain a data structure with the
+                            bounds for each allocated object and perform
+                            lookups in this data structure to check if
+                            pointers remain within bounds. This data structure
+                            can grow large and the lookups are expensive.
+                            <br></br>
+                            In this paper we present a backwards compatible
+                            bounds checking technique that substantially
+                            reduces performance overhead. The key insight is
+                            to constrain the sizes of allocated memory regions
+                            and their alignment to enable efficient bounds
+                            lookups and hence efficient bounds checks at
+                            runtime. Our technique has low overhead in
+                            practice--only 8% throughput decrease for Apache--
+                            and is more than two times faster than the fastest
+                            previous technique and about five times
+                            faster--using less memory--than recording object
+                            bounds using a splay tree.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                    An efficient
+                    and backwards-compatible transformation to ensure memory
+                    safety of C programs (SIGSOFT 2004)
+                        </a>
+                    </div>
+                    Xu, W., DuVarney, D. C., & Sekar, R. (2004).
+                    ACM SIGSOFT Software Engineering
+                    Notes, 29(6), 117-126.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Memory-related errors, such as buffer overflows
+                            and dangling pointers, remain one of the principal
+                            reasons for failures of C programs. As a result, a
+                            number of recent research efforts have focused on
+                            the problem of dynamic detection of memory errors
+                            in C programs. However, existing approaches suffer
+                            from one or more of the following problems:
+                            inability to detect all memory errors (e.g.,
+                            Purify), requiring non-trivial modifications to
+                            existing C programs (e.g., Cyclone), changing the
+                            memory management model of C to use garbage
+                            collection (e.g., CCured), and excessive
+                            performance overheads. In this paper, we present a
+                            new approach that addresses these problems. Our
+                            approach operates via source code transformation
+                            and combines efficient data-structures with
+                            simple, localized optimizations to obtain good
+                            performance.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/lattner_safety.pdf"
+                            target="_blank">
+                    Memory safety without runtime checks or garbage
+                    collection. (LCTES 2003)
+                        </a>
+                    </div>
+                    Dhurjati, D., Kowshik, S., Adve, V., & Lattner, C. (2003).
+                    ACM SIGPLAN Notices, 38(7), 69-80.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Traditional approaches to enforcing memory safety
+                            of programs rely heavily on runtime checks of
+                            memory accesses and on garbage collection, both of
+                            which are unattractive for embedded applications.
+                            The long-term goal of our work is to enable 100%
+                            static enforcement of memory safety for embedded
+                            programs through advanced compiler techniques and
+                            minimal semantic restrictions on programs. The key
+                            result of this paper is a compiler technique that
+                            ensures memory safety of dynamically allocated
+                            memory without programmer annotations, runtime
+                            checks, or garbage collection, and works for a
+                            large subclass of type-safe C programs. The
+                            technique is based on a fully automatic pool
+                            allocation (i.e., region-inference) algorithm for
+                            C programs we developed previously, and it ensures
+                            safety of dynamically allocated memory while
+                            retaining explicit deallocation of individual
+                            objects within regions (to avoid garbage
+                            collection). For a diverse set of embedded C
+                            programs (and using a previous technique to avoid
+                            null pointer checks), we show that we are able to
+                            statically ensure the safety of pointer and
+                            dynamic memory usage in all these programs. We
+                            also describe some improvements over our previous
+                            work in static checking of array accesses.
+                            Overall, we achieve 100% static enforcement of
+                            memory safety without new language syntax for a
+                            significant subclass of embedded C programs, and
+                            the subclass is much broader if array bounds
+                            checks are ignored. Overall, these techniques
+                            greatly expand the class of embedded programs for
+                            which 100% static enforcement of memory safety is
+                            possible, and furthermore can be achieved without
+                            new language support.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                        CCured: Type-safe retrofitting of legacy code (POPL 2002)
+                        </a>
+                    </div>
+                    Necula, G. C., McPeak, S., & Weimer, W. (2002, January).
+                    In ACM
+                    SIGPLAN Notices (Vol. 37, No. 1, pp. 128-139). ACM.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            In this paper we propose a scheme that combines
+                            type inference and run-time checking to make
+                            existing C programs type safe. We describe the
+                            CCured type system, which extends that of C by
+                            separating pointer types according to their usage.
+                            This type system allows both pointers whose usage
+                            can be verified statically to be type safe, and
+                            pointers whose safety must be checked at run time.
+                            We prove a type soundness result and then we
+                            present a surprisingly simple type inference
+                            algorithm that is able to infer the appropriate
+                            pointer kinds for existing C programs.Our
+                            experience with the CCured system shows that the
+                            inference is very effective for many C programs,
+                            as it is able to infer that most or all of the
+                            pointers are statically verifiable to be type
+                            safe. The remaining pointers are instrumented with
+                            efficient run-time checks to ensure that they are
+                            used safely. The resulting performance loss due to
+                            run-time checks is 0-150%, which is several times
+                            better than comparable approaches that use only
+                            dynamic checking. Using CCured we have discovered
+                            programming bugs in established C programs such as
+                            several SPECINT95 benchmarks.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="https://www.usenix.org/legacy/events/usenix02/full_papers/jim/jim_html/"
+                            target="_blank">
+                    Cyclone: A Safe
+                    Dialect of C (USENIX 2002)
+                        </a>
+                    </div>
+                    Jim, T., Morrisett, J. G., Grossman, D., Hicks, M. W.,
+                    Cheney, J., & Wang, Y. (2002, June)
+                    . In USENIX Annual Technical Conference,
+                    General Track (pp. 275-288).
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Cyclone is a safe dialect of C. It has been
+                            designed from the ground up to prevent the buffer
+                            overflows, format string attacks, and memory
+                            management errors that are common in C programs,
+                            while retaining C's syntax and semantics. This
+                            paper examines safety violations enabled by C's
+                            design, and shows how Cyclone avoids them, without
+                            giving up C's hallmark control over low-level
+                            details such as data representation and memory
+                            management.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <h2>Data Integrity</h2>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/secretredaction.pdf"
+                            target="_blank">
+                            Compiler-instrumented, dynamic
+                            secret-redaction of legacy processes for attacker
+                            deception (USENIX 2015)
+                        </a>
+                    </div>
+                    F. Araujo and H. Kevin W.
+                    In 24th USENIX Security Symposium (USENIX Security 15), pages
+                    145–159, Washington, D.C., 2015. USENIX Association.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            An enhanced dynamic taint-tracking semantics is
+                            presented and implemented, facilitating fast and
+                            precise runtime secret redaction from legacy
+                            processes, such as those compiled from C/C++. The
+                            enhanced semantics reduce the annotation burden
+                            imposed upon developers seeking to add
+                            secret-redaction capabilities to legacy code, while
+                            curtailing over-tainting and label creep.
+
+                            An implementation for LLVM’s DataFlow Sanitizer
+                            automatically instruments taint-tracking and
+                            secretredaction support into annotated C/C++ programs
+                            at compile-time, yielding programs that can
+                            self-censor their address spaces in response to
+                            emerging cyber-attacks. The technology is applied to
+                            produce the first information flow-based
+                            honey-patching architecture for the Apache web server.
+                            Rather than merely blocking intrusions, the modified
+                            server deceptively diverts attacker connections to
+                            secret-sanitized process clones that monitor attacker
+                            activities and disinform adversaries with honey-data.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/dfi.pdf"
+                            target="_blank">
+                            Securing software by enforcing data-flow integrity
+                            (OSDI 2006)
+                        </a>
+                    </div>
+                    Castro, M., Costa, M., & Harris, T. (2006, November).
+                    In
+                    Proceedings of the 7th symposium on Operating systems
+                    design and implementation (pp. 147-160). USENIX
+                    Association.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Software attacks often subvert the intended
+                            data-flow in a vulnerable program. For example,
+                            attackers exploit buffer overflows and format
+                            string vulnerabilities to write data to unintended
+                            locations. We present a simple technique that
+                            prevents these attacks by enforcing data-flow
+                            integrity. It computes a data-flow graph using
+                            static analysis, and it instruments the program to
+                            ensure that the flow of data at runtime is allowed
+                            by the data-flow graph. We describe an efficient
+                            implementation of data-flow integrity enforcement
+                            that uses static analysis to reduce
+                            instrumentation overhead. This implementation can
+                            be used in practice to detect a broad class of
+                            attacks and errors because it can be applied
+                            automatically to C and C++ programs without
+                            modifications, it does not have false positives,
+                            and it has low overhead.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                            Protecting C programs from attacks via invalid
+                            pointer dereferences (SIGSOFT 2003)
+                        </a>
+                    </div>
+                    Yong, S. H., & Horwitz, S. (2003, September).
+                    In
+                    ACM SIGSOFT Software Engineering Notes (Vol. 28, No. 5,
+                    pp. 307-316). ACM.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Writes via unchecked pointer dereferences rank
+                            high among vulnerabilities most often exploited by
+                            malicious code. The most common attacks use an
+                            unchecked string copy to cause a buffer overrun,
+                            thereby overwriting the return address in the
+                            function's activation record. Then, when the
+                            function "returns", control is actually
+                            transferred to the attacker's code. Other attacks
+                            may overwrite function pointers, setjmp buffers,
+                            system-call arguments, or simply corrupt data to
+                            cause a denial of service.A number of techniques
+                            have been proposed to address such attacks. Some
+                            are limited to protecting the return address only;
+                            others are more general, but have undesirable
+                            properties such as having a high runtime overhead,
+                            requiring manual changes to the source code, or
+                            forcing programmers to give up control of data
+                            representations and memory management.This paper
+                            describes the design and implementation of a
+                            security tool for C programs that addresses all
+                            these issues: it has a low runtime overhead, does
+                            not require source code modification by the
+                            programmer, does not report false positives, and
+                            provides protection against a wide range of
+                            attacks via bad pointer dereferences, including
+                            but not limited to buffer overruns and attempts to
+                            access previously freed memory. The tool uses
+                            static analysis to identify potentially dangerous
+                            pointer dereferences, and memory locations that
+                            are legitimate targets of these pointers. Dynamic
+                            checks are then inserted; if at runtime the target
+                            of an unsafe dereference is not in the legitimate
+                            set, a potential security violation is reported,
+                            and the program is halted.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <h2>Dynamic Return Integrity</h2>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/dynaguard.pdf"
+                            target="_blank">
+                            DynaGuard: Armoring Canary-based
+                            Protections against Brute-force Attacks (ASCAC
+                            2015)
+                        </a>
+                    </div>
+                    Theofilos Petsios, Vasileios P. Kemerlis, Michalis Polychronakis,
+                    Angelos D. Keromytis. In Proceedings of the
+                    31th Annual Computer Security Applications Conference (ACSAC),
+                    December 2015.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Over the past decade many exploit mitigation techniques
+                            have been introduced to defend against memory corruption
+                            attacks. WˆX, ASLR, and canary-based protections are
+                            nowadays widely deployed and considered standard practice.
+                            However, despite the fact that these techniques have
+                            evolved over time, they still suffer from limitations that
+                            enable skilled adversaries to bypass them.
+                            In this work, we focus on countermeasures against the
+                            byte-by-byte discovery of stack canaries in forking
+                            programs. This limitation, although known for years, has
+                            yet to be ad- dressed effectively, and was recently abused
+                            by a series of exploits that allowed for the remote
+                            compromise of the popular Nginx web server and a full ASLR
+                            bypass in x86-64 Linux. We present DynaGuard, an extension
+                            to canary-based protections that further armors hardened
+                            applications against brute-force canary attacks. We have
+                            implemented DynaGuard in two flavors: a compiler-based
+                            version, which incurs an average runtime overhead of 1.2%,
+                            and a version based on dynamic binary instrumentation,
+                            which can protect binary-only applications without
+                            requiring access to source code. We have evaluated both
+                            implementations using a set of popular server applications
+                            and benchmark suites, and examined how the proposed design
+                            overcomes the limitations of previous proposals, ensuring
+                            application correctness and seamless integration with
+                            third-party software.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/rad.pdf"
+                            target="_blank">
+                        RAD: A
+                        compile-time solution to buffer overflow attacks
+                        (ICDS 2001)
+                        </a>
+                    </div>
+                        Chiueh, T. C., & Hsu, F. H. (2001, April).
+                        In
+                        Distributed Computing Systems, 2001. 21st
+                        International Conference on. (pp. 409-417). IEEE.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Buffer overflow attack can inflict upon almost
+                            arbitrary programs and is one of the most common
+                            vulnerabilities that can seriously compromise the
+                            security of a network-attached computer system.
+                            This paper presents a compiler-based solution to
+                            the notorious buffer overflow attack problem.
+                            Using this solution, users can prevent attackers
+                            from compromising their systems by changing the
+                            return address to execute injected code, which is
+                            the most common method used in buffer overflow
+                            attacks. Return address defender (RAD) is a simple
+                            compiler patch that automatically creates a safe
+                            area to store a copy of return addresses and
+                            automatically adds protection code into
+                            applications that it compiles to defend programs
+                            against buffer overflow attacks. Using it to
+                            protect a program does not need to modify the
+                            source code of the protected programs. Moreover,
+                            RAD does not change the layout of stack frames, so
+                            binary code it generated is compatible with
+                            existing libraries and other object files.
+                            Empirical performance measurements on a fully
+                            operational RAD prototype show that programs
+                            protected by RAD only experience a factor of
+                            between 1.01 to 1.31 slow-down. In this paper we
+                            present the principle of buffer overflow attacks,
+                            a taxonomy of defense methods, the implementation
+                            details of RAD, and the performance analysis of
+                            the RAD prototype
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/stackguard.pdf"
+                            target="_blank">
+                            StackGuard:
+                            Automatic Adaptive Detection and Prevention of
+                            Buffer-Overflow Attacks (USENIX 1998)
+                        </a>
+                    </div>
+                    Cowan, C., Pu, C., Maier, D., Walpole, J., Bakke, P.,
+                    Beattie, S., ... & Hinton, H. (1998, January).
+                    In Usenix Security (Vol. 98, pp.
+                    63-78).
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            This paper presents a systematic solution to the
+                            persistent problem of buffer overflow attacks.
+                            Buffer overflow attacks gained notoriety in 1988
+                            as part of the Morris Worm incident on the
+                            Internet. While it is fairly simple to fix
+                            individual buffer overflow vulnerabilities, buffer
+                            overflow attacks continue to this day. Hundreds of
+                            attacks have been discovered, and while most of
+                            the obvious vulnerabilities have now been patched,
+                            more sophisticated buffer overflow attacks
+                            continue to emerge.
+                            <br></br>
+                            We describe StackGuard: a simple compiler
+                            technique that virtually eliminates buffer
+                            overflow vulnerabilities with only modest
+                            performance penalties. Privileged programs that
+                            are recompiled with the StackGuard compiler
+                            extension no longer yield control to the attacker,
+                            but rather enter a fail-safe state. These programs
+                            require no source code changes at all, and are
+                            binary-compatible with existing operating systems
+                            and libraries. We describe the compiler technique
+                            (a simple patch to gcc), as well as a set of
+                            variations on the technique that trade-off between
+                            penetration resistance and performance. We present
+                            experimental results of both the penetration
+                            resistance and the performance impact of this
+                            technique.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <h2>Code Pointer Integrity (CPI)</h2>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/cpi.pdf"
+                            target="_blank">
+                            Code-pointer integrity (OSDI 2014)
+                        </a>
+                    </div>
+                            Kuznetsov, V., Szekeres, L., Payer, M., Candea,
+                            G., Sekar, R., & Song, D. (2014, October).
+                            In USENIX Symposium on
+                            Operating Systems Design and Implementation
+                            (OSDI).
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Systems code is often written in low-level
+                            languages like C/C++, which offer many benefits
+                            but also delegate memory management to
+                            programmers. This invites memory safety bugs that
+                            attackers can exploit to divert control flow and
+                            compromise the system. Deployed defense mechanisms
+                            (e.g., ASLR, DEP) are incomplete, and stronger
+                            defense mechanisms (e.g., CFI) often have high
+                            overhead and limited guarantees.
+                            <br></br>
+                            We introduce code-pointer integrity (CPI), a new
+                            design point that guarantees the integrity of all
+                            code pointers in a program (e.g., function
+                            pointers, saved return addresses) and thereby
+                            prevents all control-flow hijack attacks,
+                            including return-oriented programming. We also
+                            introduce code-pointer separation (CPS), a
+                            relaxation of CPI with better performance
+                            properties. CPI and CPS offer substantially better
+                            security-to-overhead ratios than the state of the
+                            art, they are practical (we protect a complete
+                            FreeBSD system and over 100 packages like apache
+                            and postgresql), effective (prevent all attacks in
+                            the RIPE benchmark), and efficient: on SPEC
+                            CPU2006, CPS averages 1.2% overhead for C and 1.9%
+                            for C/C++, while CPI’s overhead is 2.9% for C and
+                            8.4% for C/C++.
+                            <br></br>
+                            A prototype implementation of CPI and CPS can be
+                            obtained from http://levee.epfl.ch.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <h2>Software Fault Isolation (SFI)</h2>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/intflow.pdf"
+                            target="_blank">
+                    IntFlow: improving the
+                    accuracy of arithmetic error detection using information
+                    flow tracking (ACSAC 2014)
+                        </a>
+                    </div>
+                    Pomonis, M., Petsios, T., Jee, K., Polychronakis, M., &
+                    Keromytis, A. D. (2014, December).
+                    In Proceedings of the 30th Annual Computer
+                    Security Applications Conference (pp. 416-425). ACM.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Integer overflow and underflow, signedness
+                            conversion, and other types of arithmetic errors
+                            in C/C++ programs are among the most common
+                            software flaws that result in exploitable
+                            vulnerabilities. Despite significant advances in
+                            automating the detection of arithmetic errors,
+                            existing tools have not seen widespread adoption
+                            mainly due to their increased number of false
+                            positives. Developers rely on wrap-around
+                            counters, bit shifts, and other language
+                            constructs for performance optimizations and code
+                            compactness, but those same constructs, along with
+                            incorrect assumptions and conditions of undefined
+                            behavior, are often the main cause of severe
+                            vulnerabilities. Accurate differentiation between
+                            legitimate and erroneous uses of arithmetic
+                            language intricacies thus remains an open problem.
+                            </br></br>
+                            As a step towards addressing this issue, we
+                            present IntFlow, an accurate arithmetic error
+                            detection tool that combines static information
+                            flow tracking and dynamic program analysis. By
+                            associating sources of untrusted input with the
+                            identified arithmetic errors, IntFlow
+                            differentiates between non-critical, possibly
+                            developer-intended undefined arithmetic
+                            operations, and potentially exploitable arithmetic
+                            bugs. IntFlow examines a broad set of integer
+                            errors, covering almost all cases of C/C++
+                            undefined behaviors, and achieves high error
+                            detection coverage. We evaluated IntFlow using the
+                            SPEC benchmarks and a series of real-world
+                            applications, and measured its effectiveness in
+                            detecting arithmetic error vulnerabilities and
+                            reducing false positives. IntFlow successfully
+                            detected all real-world vulnerabilities for the
+                            tested applications and achieved a reduction of
+                            89% in false positives over standalone static code
+                            instrumentation.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/likelysfi.pdf"
+                            target="_blank">
+                    Using likely invariants for automated software fault
+                    localization (ASPLOS 2013)
+                        </a>
+                    </div>
+                    Sahoo, S. K., Criswell, J., Geigle, C., & Adve, V. (2013).
+                    ACM SIGARCH Computer Architecture News,
+                    41(1), 139-152.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            We propose an automatic diagnosis technique for
+                            isolating the root cause(s) of software failures.
+                            We use likely program invariants, automatically
+                            generated using correct inputs that are close to
+                            the fault-triggering input, to select a set of
+                            candidate program locations which are possible
+                            root causes. We then trim the set of candidate
+                            root causes using software-implemented dynamic
+                            backwards slicing, plus two new filtering
+                            heuristics: dependence filtering, and filtering
+                            via multiple failing inputs that are also close to
+                            the failing input. Experimental results on
+                            reported software bugs of three large open-source
+                            servers show that we are able to narrow down the
+                            number of candidate bug locations to between 5 and
+                            17 program expressions, even in programs that are
+                            hundreds of thousands of lines long.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/rocksalt.pdf"
+                            target="_blank">
+                    RockSalt: better, faster, stronger
+                    SFI for the x86 (PLDI 2012)
+                        </a>
+                    </div>
+                    Morrisett, G., Tan, G., Tassarotti, J., Tristan, J. B., &
+                    Gan, E. (2012, June).
+                    In ACM SIGPLAN Notices (Vol. 47, No. 6,
+                    pp. 395-404). ACM.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Software-based fault isolation (SFI), as used in
+                            Google's Native Client (NaCl), relies upon a
+                            conceptually simple machine-code analysis to
+                            enforce a security policy. But for complicated
+                            architectures such as the x86, it is all too easy
+                            to get the details of the analysis wrong. We have
+                            built a new checker that is smaller, faster, and
+                            has a much reduced trusted computing base when
+                            compared to Google's original analysis. The key to
+                            our approach is automatically generating the bulk
+                            of the analysis from a declarative description
+                            which we relate to a formal model of a subset of
+                            the x86 instruction set architecture. The x86
+                            model, developed in Coq, is of independent
+                            interest and should be usable for a wide range of
+                            machine-level verification tasks.
+                        </div>
+                    </span>
+                </div>
+                </li>
+
+                <h2>Probabilistic Methods</h2>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://static.usenix.org/events/sec03/tech/full_papers/cowan/cowan_html/"
+                            target="_blank">
+                    Pointguard TM: protecting pointers from buffer
+                    overflow vulnerabilities (USENIX 2003)
+                        </a>
+                    </div>
+                    Cowan, C., Beattie, S., Johansen, J., & Wagle, P. (2003,
+                    August).
+                    In Proceedings of the 12th
+                    conference on USENIX Security Symposium (Vol. 12, pp.
+                    91-104).
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Despite numerous security technologies crafted to
+                            resist buffer overflow vulnerabilities, buffer
+                            overflows continue to be the dominant form of
+                            software security vulnerability. This is because
+                            most buffer overflow defenses provide only partial
+                            coverage, and the attacks have adapted to exploit
+                            problems that are not well-defended, such as heap
+                            overflows. This paper presents PointGuard, a
+                            compiler technique to defend against most kinds of
+                            buffer overflows by encrypting pointers when
+                            stored in memory, and decrypting them only when
+                            loaded into CPU registers. We describe the
+                            PointGuard implementation, show that PointGuard's
+                            overhead is low when protecting real
+                            security-sensitive applications such as OpenSSL,
+                            and show that PointGuard is effective in defending
+                            against buffer overflow vulnerabilities that are
+                            not blocked by previous defenses.
+                        </div>
+                    </span>
+                </div>
+                </li>
+
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                        Data space randomization (DIMVA 2008)
+                        </a>
+                    </div>
+                        Bhatkar, S., & Sekar, R. (2008).
+                        In Detection of Intrusions and Malware,
+                        and Vulnerability Assessment (pp. 1-22). Springer
+                        Berlin Heidelberg.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Over the past several years, US-CERT advisories,
+                            as well as most critical updates from software
+                            vendors, have been due to memory corruption
+                            vulnerabilities such as buffer overflows, heap
+                            overflows, etc. Several techniques have been
+                            developed to defend against the exploitation of
+                            these vulnerabilities, with the most promising
+                            defenses being based on randomization. Two
+                            randomization techniques have been explored so
+                            far: address space randomization (ASR) that
+                            randomizes the location of objects in virtual
+                            memory, and instruction set randomization (ISR)
+                            that randomizes the representation of code. We
+                            explore a third form of randomization called data
+                            space randomization (DSR) that randomizes the
+                            representation of data stored in program memory.
+                            Unlike ISR, DSR is effective against non-control
+                            data attacks as well as code injection attacks.
+                            Unlike ASR, it can protect against corruption of
+                            non-pointer data as well as pointer-valued data.
+                            Moreover, DSR provides a much higher range of
+                            randomization (typically 232for 32-bit data) as
+                            compared to ASR. Other interesting aspects of DSR
+                            include (a) it does not share a weakness common to
+                            randomization-based defenses, namely,
+                            susceptibility to information leakage attacks, and
+                            (b) it is capable of detecting some exploits that
+                            are missed by full bounds-checking techniques,
+                            e.g., some of the overflows from one field of a
+                            structure to the next field. Our implementation
+                            results show that with appropriate design choices,
+                            DSR can achieve a performance overhead in the
+                            range of 5% to 30% for a range of programs.
+                        </div>
+                    </span>
+                </div>
+                </li>
+
+
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                        </a>
+                    </div>
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                        </a>
+                    </div>
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                        </a>
+                    </div>
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                        </a>
+                    </div>
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                        </a>
+                    </div>
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                        </a>
+                    </div>
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                        </a>
+                    </div>
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                        </a>
+                    </div>
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
+                        </a>
+                    </div>
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                        </div>
+                    </span>
+                </div>
+                </li>
+		</ol>
+	</div>
+    </div> <!-- /publications -->
+</div>
+<br></br>
+<br></br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44431425-1', 'columbia.edu');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
