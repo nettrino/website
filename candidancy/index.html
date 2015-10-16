@@ -9,8 +9,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="http://www.cs.columbia.edu/~theofilos/css/bootstrap.css" media="screen" type="text/css">
   <link rel="stylesheet" href="http://www.cs.columbia.edu/~theofilos/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="./custom.css" type="text/css">
-  <!-- <link rel="stylesheet" href="http://www.cs.columbia.edu/~theofilos/css/custom.css" type="text/css"> -->
+  <link rel="stylesheet" href="http://www.cs.columbia.edu/~theofilos/css/plain.css" type="text/css">
   <link rel="shortcut icon" href="http://www.cs.columbia.edu/~theofilos/fig/favicon.ico">
 </head>
 <body>
@@ -179,55 +178,6 @@
                 <div class="paper">
                     <div class="papertitle">
                         <a
-                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/memsafe.pdf"
-                            target="_blank">
-                    MemSafe: ensuring
-                    the spatial and temporal memory safety of C at runtime
-                    (SPE 2013)
-                        </a>
-                    </div>
-                    Simpson, M. S., & Barua, R. K. (2013).
-                    Software: Practice and Experience, 43(1), 93-128.
-                    <span class="abstract">
-                        [abstract]
-                        <div class="full_abstract">
-                            Memory access violations are a leading source of
-                            unreliability in C programs. As evidence of this
-                            problem, a variety of methods exist that retrofit
-                            C with software checks to detect memory errors at
-                            runtime. However, these methods generally suffer
-                            from one or more drawbacks including the inability
-                            to detect all errors, the use of incompatible
-                            metadata, the need for manual code modifications,
-                            and high runtime overheads. This paper presents a
-                            compiler analysis and transformation for ensuring
-                            the memory safety of C called MemSafe. MemSafe
-                            makes several novel contributions that improve
-                            upon previous work and lower the cost of safety.
-                            These include (i) a method for modeling temporal
-                            errors as spatial errors, (ii) a metadata
-                            representation that combines features of both
-                            object-based and pointer-based approaches, and
-                            (iii) a dataflow representation that simplifies
-                            optimizations for removing unneeded checks.
-                            MemSafe is capable of detecting real errors with
-                            lower overheads than previous efforts.
-                            Experimental results show that MemSafe detects all
-                            memory errors in six programs with known
-                            violations as well as two large and widely used
-                            open source applications. Finally, MemSafe ensures
-                            complete safety with an average overhead of 88% on
-                            30 programs commonly used for evaluating the
-                            performance of error detection tools. Copyright ©
-                            2012 John Wiley & Sons, Ltd.
-                        </div>
-                    </span>
-                </div>
-                </li>
-                <li>
-                <div class="paper">
-                    <div class="papertitle">
-                        <a
                             href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/cfr.pdf"
                             target="_blank">
                         Control-flow restrictor: compiler-based CFI for iOS
@@ -315,49 +265,6 @@
                             results demonstrate that it incurs modest runtime
                             overhead of 19.90% and 25.34% on SPECint2000
                             programs for x86-32 and x86-64, respectively
-                        </div>
-                    </span>
-                </div>
-                </li>
-                <li>
-                <div class="paper">
-                    <div class="papertitle">
-                        <a
-                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/asan.pdf"
-                            target="_blank">
-                        AddressSanitizer: A Fast Address
-                        Sanity Checker (USENIX 2012)
-                        </a>
-                    </div>
-                        Serebryany, K., Bruening, D., Potapenko, A., & Vyukov,
-                        D. (2012, June).
-                        In USENIX Annual Technical Conference
-                        (pp. 309-318).
-                    <span class="abstract">
-                        [abstract]
-                        <div class="full_abstract">
-                            Memory access bugs, including buffer overflows and
-                            uses of freed heap memory, remain a serious
-                            problem for programming languages like C and C++.
-                            Many memory error detectors exist, but most of
-                            them are either slow or detect a limited set of
-                            bugs, or both.
-                            <br></br>
-                            This paper presents AddressSanitizer, a new memory
-                            error detector. Our tool finds out-of-bounds
-                            accesses to heap, stack, and global objects, as
-                            well as use-after-free bugs. It employs a
-                            specialized memory allocator and code
-                            instrumentation that is simple enough to be
-                            implemented in any compiler, binary translation
-                            system, or even in hardware.
-                            <br></br>
-                            AddressSanitizer achieves efficiency without
-                            sacrificing comprehensiveness. Its average
-                            slowdown is just 73% yet it accurately detects
-                            bugs at the point of occurrence. It has found over
-                            300 previously unknown bugs in the Chromium
-                            browser and many bugs in other software.
                         </div>
                     </span>
                 </div>
@@ -455,6 +362,54 @@
                 </div>
                 </li>
                 <h2>Memory Safety</h2>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/memsafe.pdf"
+                            target="_blank">
+                            MemSafe: Ensuring the Spatial and Temporal Memory
+                            Safety of C at Runtime (SPE 2013)
+                        </a>
+                    </div>
+                    Simpson, M. S., & Barua, R. K. (2013).
+                    Software: Practice and Experience, 43(1), 93-128.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Memory access violations are a leading source of
+                            unreliability in C programs. As evidence of this
+                            problem, a variety of methods exist that retrofit
+                            C with software checks to detect memory errors at
+                            runtime. However, these methods generally suffer
+                            from one or more drawbacks including the inability
+                            to detect all errors, the use of incompatible
+                            metadata, the need for manual code modifications,
+                            and high runtime overheads. This paper presents a
+                            compiler analysis and transformation for ensuring
+                            the memory safety of C called MemSafe. MemSafe
+                            makes several novel contributions that improve
+                            upon previous work and lower the cost of safety.
+                            These include (i) a method for modeling temporal
+                            errors as spatial errors, (ii) a metadata
+                            representation that combines features of both
+                            object-based and pointer-based approaches, and
+                            (iii) a dataflow representation that simplifies
+                            optimizations for removing unneeded checks.
+                            MemSafe is capable of detecting real errors with
+                            lower overheads than previous efforts.
+                            Experimental results show that MemSafe detects all
+                            memory errors in six programs with known
+                            violations as well as two large and widely used
+                            open source applications. Finally, MemSafe ensures
+                            complete safety with an average overhead of 88% on
+                            30 programs commonly used for evaluating the
+                            performance of error detection tools. Copyright ©
+                            2012 John Wiley & Sons, Ltd.
+                        </div>
+                    </span>
+                </div>
+                </li>
                 <li>
                 <div class="paper">
                     <div class="papertitle">
@@ -602,7 +557,7 @@
                 <div class="paper">
                     <div class="papertitle">
                         <a
-                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/eff_back.pdf"
                             target="_blank">
                     An efficient
                     and backwards-compatible transformation to ensure memory
@@ -854,6 +809,59 @@
                         <a
                             href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
                             target="_blank">
+                        Data space randomization (DIMVA 2008)
+                        </a>
+                    </div>
+                        Bhatkar, S., & Sekar, R. (2008).
+                        In Detection of Intrusions and Malware,
+                        and Vulnerability Assessment (pp. 1-22). Springer
+                        Berlin Heidelberg.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Over the past several years, US-CERT advisories,
+                            as well as most critical updates from software
+                            vendors, have been due to memory corruption
+                            vulnerabilities such as buffer overflows, heap
+                            overflows, etc. Several techniques have been
+                            developed to defend against the exploitation of
+                            these vulnerabilities, with the most promising
+                            defenses being based on randomization. Two
+                            randomization techniques have been explored so
+                            far: address space randomization (ASR) that
+                            randomizes the location of objects in virtual
+                            memory, and instruction set randomization (ISR)
+                            that randomizes the representation of code. We
+                            explore a third form of randomization called data
+                            space randomization (DSR) that randomizes the
+                            representation of data stored in program memory.
+                            Unlike ISR, DSR is effective against non-control
+                            data attacks as well as code injection attacks.
+                            Unlike ASR, it can protect against corruption of
+                            non-pointer data as well as pointer-valued data.
+                            Moreover, DSR provides a much higher range of
+                            randomization (typically 232for 32-bit data) as
+                            compared to ASR. Other interesting aspects of DSR
+                            include (a) it does not share a weakness common to
+                            randomization-based defenses, namely,
+                            susceptibility to information leakage attacks, and
+                            (b) it is capable of detecting some exploits that
+                            are missed by full bounds-checking techniques,
+                            e.g., some of the overflows from one field of a
+                            structure to the next field. Our implementation
+                            results show that with appropriate design choices,
+                            DSR can achieve a performance overhead in the
+                            range of 5% to 30% for a range of programs.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            target="_blank">
                             Protecting C programs from attacks via invalid
                             pointer dereferences (SIGSOFT 2003)
                         </a>
@@ -1053,7 +1061,7 @@
                     </span>
                 </div>
                 </li>
-                <h2>Code Pointer Integrity (CPI)</h2>
+                <h2>Pointer Integrity</h2>
                 <li>
                 <div class="paper">
                     <div class="papertitle">
@@ -1105,68 +1113,47 @@
                     </span>
                 </div>
                 </li>
-                <h2>Software Fault Isolation (SFI)</h2>
                 <li>
                 <div class="paper">
                     <div class="papertitle">
                         <a
-                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/intflow.pdf"
+                            href="http://static.usenix.org/events/sec03/tech/full_papers/cowan/cowan_html/"
                             target="_blank">
-                    IntFlow: improving the
-                    accuracy of arithmetic error detection using information
-                    flow tracking (ACSAC 2014)
+                    Pointguard TM: protecting pointers from buffer
+                    overflow vulnerabilities (USENIX 2003)
                         </a>
                     </div>
-                    Pomonis, M., Petsios, T., Jee, K., Polychronakis, M., &
-                    Keromytis, A. D. (2014, December).
-                    In Proceedings of the 30th Annual Computer
-                    Security Applications Conference (pp. 416-425). ACM.
+                    Cowan, C., Beattie, S., Johansen, J., & Wagle, P. (2003,
+                    August).
+                    In Proceedings of the 12th
+                    conference on USENIX Security Symposium (Vol. 12, pp.
+                    91-104).
                     <span class="abstract">
                         [abstract]
                         <div class="full_abstract">
-                            Integer overflow and underflow, signedness
-                            conversion, and other types of arithmetic errors
-                            in C/C++ programs are among the most common
-                            software flaws that result in exploitable
-                            vulnerabilities. Despite significant advances in
-                            automating the detection of arithmetic errors,
-                            existing tools have not seen widespread adoption
-                            mainly due to their increased number of false
-                            positives. Developers rely on wrap-around
-                            counters, bit shifts, and other language
-                            constructs for performance optimizations and code
-                            compactness, but those same constructs, along with
-                            incorrect assumptions and conditions of undefined
-                            behavior, are often the main cause of severe
-                            vulnerabilities. Accurate differentiation between
-                            legitimate and erroneous uses of arithmetic
-                            language intricacies thus remains an open problem.
-                            </br></br>
-                            As a step towards addressing this issue, we
-                            present IntFlow, an accurate arithmetic error
-                            detection tool that combines static information
-                            flow tracking and dynamic program analysis. By
-                            associating sources of untrusted input with the
-                            identified arithmetic errors, IntFlow
-                            differentiates between non-critical, possibly
-                            developer-intended undefined arithmetic
-                            operations, and potentially exploitable arithmetic
-                            bugs. IntFlow examines a broad set of integer
-                            errors, covering almost all cases of C/C++
-                            undefined behaviors, and achieves high error
-                            detection coverage. We evaluated IntFlow using the
-                            SPEC benchmarks and a series of real-world
-                            applications, and measured its effectiveness in
-                            detecting arithmetic error vulnerabilities and
-                            reducing false positives. IntFlow successfully
-                            detected all real-world vulnerabilities for the
-                            tested applications and achieved a reduction of
-                            89% in false positives over standalone static code
-                            instrumentation.
+                            Despite numerous security technologies crafted to
+                            resist buffer overflow vulnerabilities, buffer
+                            overflows continue to be the dominant form of
+                            software security vulnerability. This is because
+                            most buffer overflow defenses provide only partial
+                            coverage, and the attacks have adapted to exploit
+                            problems that are not well-defended, such as heap
+                            overflows. This paper presents PointGuard, a
+                            compiler technique to defend against most kinds of
+                            buffer overflows by encrypting pointers when
+                            stored in memory, and decrypting them only when
+                            loaded into CPU registers. We describe the
+                            PointGuard implementation, show that PointGuard's
+                            overhead is low when protecting real
+                            security-sensitive applications such as OpenSSL,
+                            and show that PointGuard is effective in defending
+                            against buffer overflow vulnerabilities that are
+                            not blocked by previous defenses.
                         </div>
                     </span>
                 </div>
                 </li>
+                <h2>Software Fault Isolation (SFI)</h2>
                 <li>
                 <div class="paper">
                     <div class="papertitle">
@@ -1242,43 +1229,104 @@
                 </div>
                 </li>
 
-                <h2>Probabilistic Methods</h2>
+                <h2>Error Detection</h2>
                 <li>
                 <div class="paper">
                     <div class="papertitle">
                         <a
-                            href="http://static.usenix.org/events/sec03/tech/full_papers/cowan/cowan_html/"
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/memorysanitizer.pdf"
                             target="_blank">
-                    Pointguard TM: protecting pointers from buffer
-                    overflow vulnerabilities (USENIX 2003)
+                    MemorySanitizer: fast detector of uninitialized memory use
+                    in C++ (CGO 2015)
                         </a>
                     </div>
-                    Cowan, C., Beattie, S., Johansen, J., & Wagle, P. (2003,
-                    August).
-                    In Proceedings of the 12th
-                    conference on USENIX Security Symposium (Vol. 12, pp.
-                    91-104).
+                    Stepanov, E., & Serebryany, K. (2015, February).
+                    In Code Generation and Optimization (CGO), 2015
+                    IEEE/ACM International Symposium on (pp. 46-55). IEEE.
                     <span class="abstract">
                         [abstract]
                         <div class="full_abstract">
-                            Despite numerous security technologies crafted to
-                            resist buffer overflow vulnerabilities, buffer
-                            overflows continue to be the dominant form of
-                            software security vulnerability. This is because
-                            most buffer overflow defenses provide only partial
-                            coverage, and the attacks have adapted to exploit
-                            problems that are not well-defended, such as heap
-                            overflows. This paper presents PointGuard, a
-                            compiler technique to defend against most kinds of
-                            buffer overflows by encrypting pointers when
-                            stored in memory, and decrypting them only when
-                            loaded into CPU registers. We describe the
-                            PointGuard implementation, show that PointGuard's
-                            overhead is low when protecting real
-                            security-sensitive applications such as OpenSSL,
-                            and show that PointGuard is effective in defending
-                            against buffer overflow vulnerabilities that are
-                            not blocked by previous defenses.
+                            This paper presents MemorySanitizer, a dynamic
+                            tool that detects uses of uninitialized memory in
+                            C and C++. The tool is based on compile time
+                            instrumentation and relies on bit-precise shadow
+                            memory at run-time. Shadow propagation technique
+                            is used to avoid false positive reports on copying
+                            of uninitialized memory. MemorySanitizer finds
+                            bugs at a modest cost of 2.5× in execution time
+                            and 2× in memory usage; the tool has an optional
+                            origin tracking mode that provides better reports
+                            with moderate extra overhead. The reports with
+                            origins are more detailed compared to reports from
+                            other similar tools; such reports contain names of
+                            local variables and the entire history of the
+                            uninitialized memory including intermediate
+                            stores. In this paper we share our experience in
+                            deploying the tool at a large scale and
+                            demonstrate the benefits of compile-time
+                            instrumentation over dynamic binary
+                            instrumentation.
+                        </div>
+                    </span>
+                </div>
+                </li>
+                <li>
+                <div class="paper">
+                    <div class="papertitle">
+                        <a
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/intflow.pdf"
+                            target="_blank">
+                    IntFlow: improving the
+                    accuracy of arithmetic error detection using information
+                    flow tracking (ACSAC 2014)
+                        </a>
+                    </div>
+                    Pomonis, M., Petsios, T., Jee, K., Polychronakis, M., &
+                    Keromytis, A. D. (2014, December).
+                    In Proceedings of the 30th Annual Computer
+                    Security Applications Conference (pp. 416-425). ACM.
+                    <span class="abstract">
+                        [abstract]
+                        <div class="full_abstract">
+                            Integer overflow and underflow, signedness
+                            conversion, and other types of arithmetic errors
+                            in C/C++ programs are among the most common
+                            software flaws that result in exploitable
+                            vulnerabilities. Despite significant advances in
+                            automating the detection of arithmetic errors,
+                            existing tools have not seen widespread adoption
+                            mainly due to their increased number of false
+                            positives. Developers rely on wrap-around
+                            counters, bit shifts, and other language
+                            constructs for performance optimizations and code
+                            compactness, but those same constructs, along with
+                            incorrect assumptions and conditions of undefined
+                            behavior, are often the main cause of severe
+                            vulnerabilities. Accurate differentiation between
+                            legitimate and erroneous uses of arithmetic
+                            language intricacies thus remains an open problem.
+                            </br></br>
+                            As a step towards addressing this issue, we
+                            present IntFlow, an accurate arithmetic error
+                            detection tool that combines static information
+                            flow tracking and dynamic program analysis. By
+                            associating sources of untrusted input with the
+                            identified arithmetic errors, IntFlow
+                            differentiates between non-critical, possibly
+                            developer-intended undefined arithmetic
+                            operations, and potentially exploitable arithmetic
+                            bugs. IntFlow examines a broad set of integer
+                            errors, covering almost all cases of C/C++
+                            undefined behaviors, and achieves high error
+                            detection coverage. We evaluated IntFlow using the
+                            SPEC benchmarks and a series of real-world
+                            applications, and measured its effectiveness in
+                            detecting arithmetic error vulnerabilities and
+                            reducing false positives. IntFlow successfully
+                            detected all real-world vulnerabilities for the
+                            tested applications and achieved a reduction of
+                            89% in false positives over standalone static code
+                            instrumentation.
                         </div>
                     </span>
                 </div>
@@ -1288,102 +1336,46 @@
                 <div class="paper">
                     <div class="papertitle">
                         <a
-                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
+                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/asan.pdf"
                             target="_blank">
-                        Data space randomization (DIMVA 2008)
+                        AddressSanitizer: A Fast Address
+                        Sanity Checker (USENIX 2012)
                         </a>
                     </div>
-                        Bhatkar, S., & Sekar, R. (2008).
-                        In Detection of Intrusions and Malware,
-                        and Vulnerability Assessment (pp. 1-22). Springer
-                        Berlin Heidelberg.
+                        Serebryany, K., Bruening, D., Potapenko, A., & Vyukov,
+                        D. (2012, June).
+                        In USENIX Annual Technical Conference
+                        (pp. 309-318).
                     <span class="abstract">
                         [abstract]
                         <div class="full_abstract">
-                            Over the past several years, US-CERT advisories,
-                            as well as most critical updates from software
-                            vendors, have been due to memory corruption
-                            vulnerabilities such as buffer overflows, heap
-                            overflows, etc. Several techniques have been
-                            developed to defend against the exploitation of
-                            these vulnerabilities, with the most promising
-                            defenses being based on randomization. Two
-                            randomization techniques have been explored so
-                            far: address space randomization (ASR) that
-                            randomizes the location of objects in virtual
-                            memory, and instruction set randomization (ISR)
-                            that randomizes the representation of code. We
-                            explore a third form of randomization called data
-                            space randomization (DSR) that randomizes the
-                            representation of data stored in program memory.
-                            Unlike ISR, DSR is effective against non-control
-                            data attacks as well as code injection attacks.
-                            Unlike ASR, it can protect against corruption of
-                            non-pointer data as well as pointer-valued data.
-                            Moreover, DSR provides a much higher range of
-                            randomization (typically 232for 32-bit data) as
-                            compared to ASR. Other interesting aspects of DSR
-                            include (a) it does not share a weakness common to
-                            randomization-based defenses, namely,
-                            susceptibility to information leakage attacks, and
-                            (b) it is capable of detecting some exploits that
-                            are missed by full bounds-checking techniques,
-                            e.g., some of the overflows from one field of a
-                            structure to the next field. Our implementation
-                            results show that with appropriate design choices,
-                            DSR can achieve a performance overhead in the
-                            range of 5% to 30% for a range of programs.
+                            Memory access bugs, including buffer overflows and
+                            uses of freed heap memory, remain a serious
+                            problem for programming languages like C and C++.
+                            Many memory error detectors exist, but most of
+                            them are either slow or detect a limited set of
+                            bugs, or both.
+                            <br></br>
+                            This paper presents AddressSanitizer, a new memory
+                            error detector. Our tool finds out-of-bounds
+                            accesses to heap, stack, and global objects, as
+                            well as use-after-free bugs. It employs a
+                            specialized memory allocator and code
+                            instrumentation that is simple enough to be
+                            implemented in any compiler, binary translation
+                            system, or even in hardware.
+                            <br></br>
+                            AddressSanitizer achieves efficiency without
+                            sacrificing comprehensiveness. Its average
+                            slowdown is just 73% yet it accurately detects
+                            bugs at the point of occurrence. It has found over
+                            300 previously unknown bugs in the Chromium
+                            browser and many bugs in other software.
                         </div>
                     </span>
                 </div>
                 </li>
 
-
-                <li>
-                <div class="paper">
-                    <div class="papertitle">
-                        <a
-                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
-                            target="_blank">
-                        </a>
-                    </div>
-                    <span class="abstract">
-                        [abstract]
-                        <div class="full_abstract">
-                        </div>
-                    </span>
-                </div>
-                </li>
-                <li>
-                <div class="paper">
-                    <div class="papertitle">
-                        <a
-                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
-                            target="_blank">
-                        </a>
-                    </div>
-                    <span class="abstract">
-                        [abstract]
-                        <div class="full_abstract">
-                        </div>
-                    </span>
-                </div>
-                </li>
-                <li>
-                <div class="paper">
-                    <div class="papertitle">
-                        <a
-                            href="http://www.cs.columbia.edu/~theofilos/files/papers/candidancy/1.pdf"
-                            target="_blank">
-                        </a>
-                    </div>
-                    <span class="abstract">
-                        [abstract]
-                        <div class="full_abstract">
-                        </div>
-                    </span>
-                </div>
-                </li>
                 <li>
                 <div class="paper">
                     <div class="papertitle">
